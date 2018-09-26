@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+  {% block topbar %}
+      {% include 'includes/topbar.html.twig' %}
+  {% endblock %}
+
+
+ {% block sidemenu %}
+     {% include 'includes/adminsidemenu.html.twig' %}
+ {% endblock %}
+
+{% block contentpage %}
+
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+
+            <div class="container">
+                {% block body %}
+
+
+
+                {% endblock %}
+            </div> <!-- container -->
+
+        </div> <!-- content -->
+        {% include 'includes/footer.html.twig' %}
+    </div>
+
+
+
+{% endblock %}
+
+
+{% block rightbar %}  {% include 'includes/rightbar.html.twig' %}   {% endblock %}
+

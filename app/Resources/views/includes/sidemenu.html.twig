@@ -1,0 +1,101 @@
+<!-- ========== Left Sidebar Start ========== -->
+
+<div class="left side-menu">
+    <div class="sidebar-inner slimscrollleft">
+
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <div class="user-details">
+                    <div class="pull-left">
+                        {% if app.user.image is not null %}
+                            <img
+                                    src="{{ asset(app.user.image.AssetPath) }}"
+                                    alt="{{ app.user.username }}"
+                                    class="thumb-md img-circle"
+                            />
+
+                        {% else %}
+                            <img src="{{ asset('Resources/public/images/avatar-1.jpg') }}" class="thumb-md img-circle" alt="profile-image">
+                        {% endif %}
+
+                    </div>
+
+                    <div class="user-info">
+                    {% for role in app.user.roles %}
+                        {% if(role == 'ROLE_USER' ) %}
+                        <div class="dropdown">
+                            <a href="{{ path('fos_user_profile_show') }}" class="dropdown-toggle" >Bonjour {{ app.user.username }} </a>
+                        </div>
+                        <p class="text-muted m-0"> <a href="{{ path('fos_user_profile_show') }}">profile</a></p>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                </div>
+
+        {% endif %}
+
+
+        <!--- Divider -->
+        <div id="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="{{ path('core_home') }}" class="waves-effect active"><i class="md md-home"></i><span> Dashboard </span></a>
+                </li>
+
+                <li>
+                    <a href="{{ path('platform_home') }}" class="waves-effect"><i class="md md-event"></i><span>Annonces</span></a>
+                </li>
+
+                <li class="has_sub">
+                    <a href="#" class="waves-effect"><i class="md md-palette"></i><span>Catégories</span><span class="pull-right"><i class="md md-add"></i></span></a>
+                    {{ render(controller("PlatformBundle:Category:menu" )) }}
+                </li>
+
+
+
+                <li class="has_sub">
+                    <a href="#" class="waves-effect"><i class="md md-pages"></i> <span> Pages </span> <span class="pull-right"><i class="md md-add"></i></span></a>
+
+                    {{ render(controller("PageBundle:Page:menu", {'limit': 3} )) }}
+
+                </li>
+
+                <li>
+                    <a href="{{ path('core_contact') }}" class="waves-effect"><i class="md md-open-in-new"></i><span> Contact nous </span></a>
+                </li>
+
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li class="has_sub">
+                        <a href="#" class="waves-effect"><i class="md md-person"></i><span> Profile </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                        <ul class="list-unstyled">
+                            <li><a href="{{ path('fos_user_profile_show') }}">Mes informations</a></li>
+                            <li><a href="{{ path('fos_user_profile_edit') }}">Editer mes informations</a></li>
+                            <li><a href="{{ path('fos_user_change_password') }}">Changer mot passe</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="{{ path('platform_application') }}" class="waves-effect"><i class="md md-work"></i><span>Mes candidatures </span></a>
+                    </li>
+
+                {% else %}
+
+                <li>
+                    <a href="{{ path('fos_user_security_login') }}" class="waves-effect"><i class="md md-open-in-new"></i><span> Se connecter </span></a>
+                </li>
+
+                {% endif %}
+
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li>
+                    <a href="{{ path('fos_user_security_logout') }}" class="waves-effect"><i class="md md-close"></i><span> Déconnexion </span></a>
+                </li>
+
+                {% endif %}
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- Left Sidebar End -->

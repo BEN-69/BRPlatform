@@ -1,0 +1,21 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: bd_brplatform
+    database_user: root
+    database_password: root
+    mailer_transport: smtp
+    mailer_host: smtp.gmail.com
+    mailer_user: mail@gmail.com
+    mailer_password: xxxxxxxxxx
+    secret: xxxxxxxxx
+twig:
+    globals:
+        titre: BRPlatform
+        telephone: '02 35 00 00 00'
+        fax: '02 35 00 00 00'
+        adresse: '3 rue des jardins - Lyon 69 002'
+        email: mail@gmail.com
+        facebook: 'votre facbook'
+        pathDefault: 'http://localhost/Symfony/BRPlatform/web/'

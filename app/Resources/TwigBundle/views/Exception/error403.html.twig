@@ -1,0 +1,18 @@
+{# On utilise ici le layout général, qui se situe dans ce même CoreBundle maintenant #}
+{% extends "OCCoreBundle::layout.html.twig" %}
+
+{% block title %}
+    Erreur : {{ status_text }} - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>Oops! Une erreur s'est produite durant le chargement de la page</h1>
+
+    <h2>Notre application a retourné une erreur {{ status_code }} : {{ status_text }}.</h2>
+
+    <div>
+        N'hésitez pas à contacter le webmaster du site pour corrger l'erreur.
+    </div>
+
+{% endblock %}

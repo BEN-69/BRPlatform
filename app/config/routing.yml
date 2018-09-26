@@ -1,0 +1,44 @@
+platform_skill:
+    resource: "@PlatformBundle/Controller/SkillAdminController.php"
+    type:     annotation
+
+
+utilisateur_user:
+    resource: "@UtilisateurBundle/Controller/UtilisateurAdminController.php"
+    type:     annotation
+
+platform_category:
+    resource: "@PlatformBundle/Controller/CategoryAdminController.php"
+    type:     annotation
+
+platform_advert:
+    resource: "@PlatformBundle/Controller/AdvertAdminController.php"
+    type:     annotation
+
+platform_application:
+    resource: "@PlatformBundle/Controller/ApplicationController.php"
+    type:     annotation
+
+page:
+    resource: "@PageBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+utilisateur:
+    resource: "@UtilisateurBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+core:
+    resource: "@CoreBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+platform:
+    resource: "@PlatformBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+# fos_user
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
