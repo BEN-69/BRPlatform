@@ -31,7 +31,7 @@ class UtilisateurAdminController extends Controller
         $utilisateur=$this->container->get('security.token_storage')->getToken()->getUser();
 
 
-        $utilisateurs = $em->getRepository('UtilisateurBundle:Utilisateur')->getUtilisateurs($utilisateur->getId());
+        $utilisateurs = $em->getRepository('UtilisateurBundle:Utilisateur')->findAllExceptAdmin($utilisateur->getId());
 
 
         dump($utilisateurs);

@@ -108,23 +108,17 @@
     </div>
 
 
-
-    <div class="col-sm-12">
-        <div class="m-b-30 text-center">
-
-        <a class="btn btn-primary" href="{{ path('admin_utilisateur_edit',{'id' : utilisateur.id }) }}">Edit</a>
-
-        {{ form_start(delete_form) }}
-            <input class="btn btn-danger" type="submit" value="Delete">
-        {{ form_end(delete_form) }}
-        </div>
-    </div>
-
-<div class="col-sm-12">
-    <div class="m-b-30 text-center">
-        <a class="btn btn-default" href="{{ path('admin_utilisateur_index') }}">Back to the list</a>
-    </div>
-</div>
-
-
+    <ul>
+        <li>
+            <a class="btn btn-default" href="{{ path('admin_utilisateur_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a class="btn btn-primary" href="{{ path('admin_utilisateur_edit',{'id' : utilisateur.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input class="btn btn-danger" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
 {% endblock %}
