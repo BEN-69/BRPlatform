@@ -34,9 +34,6 @@ class UtilisateurAdminController extends Controller
         $utilisateurs = $em->getRepository('UtilisateurBundle:Utilisateur')->findAllExceptAdmin($utilisateur->getId());
 
 
-        dump($utilisateurs);
-
-
         return $this->render('UtilisateurBundle:UtilisateurAdmin:index.html.twig', array(
             'utilisateurs' => $utilisateurs));
     }

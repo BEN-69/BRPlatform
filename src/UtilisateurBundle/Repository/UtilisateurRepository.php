@@ -18,10 +18,6 @@ class UtilisateurRepository extends \Doctrine\ORM\EntityRepository
             ->where('u.id != :id')
             ->setParameter('id', $id)
         ;
-        // On applique notre condition sur le QueryBuilder
-        $this->whereCurrentYear($qb);
-        // On peut ajouter ce qu'on veut après
-        $qb->orderBy('a.date', 'DESC');
         return $qb
             ->getQuery()
             ->getResult()

@@ -57,7 +57,7 @@ class Advert
     /**
      * @ORM\Column(name="published", type="boolean")
      */
-    private $published = true;
+    private $published ;
 
     /**
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
@@ -458,4 +458,5 @@ class Advert
     {
         return $this->skills;
     }
+
 }
